@@ -32,10 +32,8 @@ function calc() {
 
     totalValue = powderValue + fatValue;
 
-    document.getElementById('snfPerKg').textContent = snfPerKg.toFixed(2);
     document.getElementById('snfPerKgRate').textContent = snfPerKgRate.toFixed(2);
     document.getElementById('powderValue').textContent = powderValue.toFixed(2);
-    document.getElementById('fatPerKg').textContent = fatPerKg.toFixed(2);
     document.getElementById('fatPerKgRate').textContent = fatPerKgRate.toFixed(2);
     document.getElementById('fatValue').textContent = fatValue.toFixed(2);
     document.getElementById('totalValue').textContent = totalValue.toFixed(2);
