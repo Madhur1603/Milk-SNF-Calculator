@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Milk Calculator</h1>
+        </div>
+        <br>
+    
+        <div class="form-row">
+            <div class="content">
+                <label>SNF :</label>
+                <input type="number" id="snf" min="0" class="ctnt_box" placeholder="Enter SNF" required onkeydown="moveCursor(event, 'fat')" />
+            </div>
+            
+            <div class="content">
+                <label>Fat :</label>
+                <input type="number" id="fat" min="0" class="ctnt_box" placeholder="Enter Fat" required onkeydown="moveCursor(event, 'rate')" />
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="content">
+                <label>Rate :</label>
+                <input type="number" id="rate" min="0" class="ctnt_box" placeholder="Enter Rate" required onkeydown="moveCursor(event, 'milk')" />
+            </div>
+            
+            <div class="content">
+                <label>Milk Amount :</label>
+                <input type="number" id="milk" min="0" class="ctnt_box" placeholder="Enter Milk" required onkeydown="moveCursor(event, 'method')" />
+            </div>
+        </div>
+        <br>
+    
+        <div class="content">
+            <label>SNF Method :</label>
+            <select id="method" class="ctnt_box">
+                <option value="60/40" selected>60/40</option>
+                <option value="52/48">52/48</option>
+            </select>
+        </div>
+    
+        <div class="btn">
+            <button onclick="calc()">Calculate</button>
+            <button onclick="refresh()">Refresh</button>
+        </div>
+    
+        <br>
+    
+        <div class="result" style="display: none;">
+
+            SNF per Kg : <h2 id="snfPerKg"></h2>
+            <br>
+            SNF per Kg Rate : <h2 id="snfPerKgRate"></h2>
+            <br>
+            Value of Powder : <h2 id="powderValue"></h2>
+            <br>
+            Fat per Kg : <h2 id="fatPerKg"></h2>
+            <br>
+            Fat per Kg Rate : <h2 id="fatPerKgRate"></h2>
+            <br>
+            Value of Fat : <h2 id="fatValue"></h2>
+            <br>
+            Total Value : <h2 id="totalValue"></h2>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
