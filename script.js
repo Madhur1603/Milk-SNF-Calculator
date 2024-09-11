@@ -13,24 +13,24 @@ function calc() {
     let snfPerKg, snfPerKgRate, powderValue, fatPerKg, fatPerKgRate, fatValue, totalValue;
 
     if (method === '60/40') {
-        snfPerKg = milk * snf / 100;
-        snfPerKgRate = rate * 40 / 8.5;
-        powderValue = snfPerKg * snfPerKgRate;
+        snfPerKg = Math.floor(milk*snf/100 * 100) / 100;
+        snfPerKgRate = Math.floor(rate*40/8.5 * 100) / 100;
+        powderValue = Math.floor(snfPerKg*snfPerKgRate * 100) / 100;
 
-        fatPerKg = milk * fat / 100;
-        fatPerKgRate = rate * 60 / 6.5;
-        fatValue = fatPerKg * fatPerKgRate;
+        fatPerKg = Math.floor(fat*milk/100 * 100) / 100;
+        fatPerKgRate = Math.floor(rate*60/6.5 * 100) / 100;
+        fatValue = Math.floor(fatPerKg*fatPerKgRate * 100) / 100;
     } else if (method === '52/48') {
-        snfPerKg = milk * snf / 100;
-        snfPerKgRate = rate * 48 / 9;
-        powderValue = snfPerKg * snfPerKgRate;
+        snfPerKg = Math.floor(milk*snf/100 * 100) / 100;
+        snfPerKgRate = Math.floor(rate*48/9 * 100) / 100;
+        powderValue = Math.floor(snfPerKg*snfPerKgRate * 100) / 100;
 
-        fatPerKg = milk * fat / 100;
-        fatPerKgRate = rate * 52 / 6.5;
-        fatValue = fatPerKg * fatPerKgRate;
+        fatPerKg = Math.floor(fat*milk/100 * 100) / 100;
+        fatPerKgRate = Math.floor(rate*52/6.5 * 100) / 100;
+        fatValue = Math.floor(fat_kg*fat_kg_rate * 100) / 100;
     }
 
-    totalValue = powderValue + fatValue;
+    totalValue = Math.floor(powderValue) + Math.floor(fatValue);
 
     document.getElementById('snfPerKgRate').textContent = snfPerKgRate.toFixed(2);
     document.getElementById('powderValue').textContent = powderValue.toFixed(2);
