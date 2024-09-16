@@ -30,7 +30,7 @@ function calc() {
         fatValue = Math.floor(fat_kg*fat_kg_rate * 100) / 100;
     }
 
-    totalValue = Math.floor(powderValue) + Math.floor(fatValue);
+    totalValue = powderValue + fatValue;
 
     document.getElementById('snfPerKgRate').textContent = snfPerKgRate.toFixed(2);
     document.getElementById('powderValue').textContent = powderValue.toFixed(2);
