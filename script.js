@@ -1,8 +1,8 @@
 function calc() {
-    const snf = Number.parseFloat(document.getElementById('snf').value);
-    const fat = Number.parseFloat(document.getElementById('fat').value);
-    const rate = Number.parseFloat(document.getElementById('rate').value);
-    const milk = Number.parseFloat(document.getElementById('milk').value);
+    const snf = parseFloat(document.getElementById('snf').value);
+    const fat = parseFloat(document.getElementById('fat').value);
+    const rate = parseFloat(document.getElementById('rate').value);
+    const milk = parseFloat(document.getElementById('milk').value);
     const method = document.getElementById('method').value;
 
     if (isNaN(snf) || isNaN(fat) || isNaN(rate) || isNaN(milk)) {
@@ -27,7 +27,7 @@ function calc() {
 
         fatPerKg = Math.floor(fat * milk / 100 * 100) / 100;
         fatPerKgRate = Math.floor(rate * 52 / 6.5 * 100) / 100;
-        fatValue = Math.floor(fatPerKg * fatPerKgRate * 100) / 100;  // fixed variable names
+        fatValue = Math.floor(fatPerKg * fatPerKgRate * 100) / 100;
     }
 
     totalValue = powderValue + fatValue;
@@ -38,10 +38,8 @@ function calc() {
     document.getElementById('fatValue').textContent = fatValue.toFixed(2);
     document.getElementById('totalValue').textContent = totalValue.toFixed(2);
 
-    const resultSection = document.querySelector('.result');
-    resultSection.style.display = 'block';
+    document.querySelector('.result').style.display = 'block';
 
-    // Move focus to refresh button
     document.getElementById('refreshBtn').focus();
 }
 
@@ -52,10 +50,7 @@ function refresh() {
     });
 
     document.getElementById('method').value = '60/40';
-
-    const resultSection = document.querySelector('.result');
-    resultSection.style.display = 'none';
-
+    document.querySelector('.result').style.display = 'none';
     document.getElementById('milk').focus();
 }
 
@@ -66,5 +61,13 @@ function moveCursor(event, nextElementId) {
         if (nextElement) {
             nextElement.focus();
         }
+    }
+}
+
+function handleRefreshKey(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        refresh();
+        document.getElementById('milk').focus();
     }
 }
