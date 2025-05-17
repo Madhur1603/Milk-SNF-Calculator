@@ -46,10 +46,10 @@
 
     <div class="btn">
         <button onclick="calc()" id="calculate">Calculate</button>
-        <button onclick="refresh()" id="refreshBtn" onkeydown="moveCursor(event, 'milk')">Refresh</button>
+        <button onclick="refresh()" id="refreshBtn" onkeydown="handleRefreshKey(event)">Refresh</button>
     </div>
 
-    <div class="result">
+    <div class="result" style="display: none;">
         <div class="result-row">
             <span>SNF per Kg Rate:</span>
             <span id="snfPerKgRate">--</span>
