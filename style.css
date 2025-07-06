@@ -44,7 +44,7 @@ h2 {
 
 .input-group label {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 19px;
     margin-bottom: 5px;
     color: #333;
 }
@@ -53,18 +53,20 @@ h2 {
     padding: 8px;
     border-radius: 6px;
     border: 1px solid #888;
-    font-size: 16px;
+    font-size: 20px;
     width: 100%;
     background-color: white;
+    font-weight: 500;
 }
 
 select {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
+    font-size: 20px;
     border-radius: 6px;
     border: 1px solid #888;
     background-color: #f9f9f9;
+    font-weight: 500;
 }
 
 option {
@@ -111,8 +113,9 @@ button:hover {
 
 .result-row span,
 .result-row strong {
-    font-size: 16px;
+    font-size: 20px;
     color: #222;
+    font-weight: 500;
 }
 
 .result-row strong {
