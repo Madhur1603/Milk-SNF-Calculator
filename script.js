@@ -1,4 +1,35 @@
+let siteActive = true;
+
+const CURRENT_VERSION = 1;
+
+// Fetch status.json
+fetch("status.json")
+    .then(res => res.json())
+    .then(data => {
+        if (!data.active || (data.version && data.version !== CURRENT_VERSION)) {
+            siteActive = false;
+            document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>This tool is no longer available.</h2>";
+        }
+    })
+    .catch(() => {
+        siteActive = false;
+        document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Error loading site.</h2>";
+    });
+
+// Auto expire after 2 minutes
+
+setTimeout(() => {
+    siteActive = false;
+    document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Session expired. Please reload.</h2>";
+}, 120000);
+
 function calc() {
+
+    if (!siteActive) {
+        alert("This tool is disabled.");
+        return;
+    }
+    
     const snf = parseFloat(document.getElementById('snf').value);
     const fat = parseFloat(document.getElementById('fat').value);
     const rate = parseFloat(document.getElementById('rate').value);
@@ -55,15 +86,20 @@ function calc() {
 }
 
 function refresh() {
+
+    if (!siteActive) return;
+    
     const inputElements = document.querySelectorAll('.ctnt_box');
     inputElements.forEach(input => {
         input.value = '';
     });
-
+    
     document.getElementById('method').value = '60/40';
     document.querySelector('.result').style.display = 'none';
     document.getElementById('milk').focus();
 }
+
+
 
 function moveCursor(event, nextElementId) {
     if (event.key === "Enter") {
